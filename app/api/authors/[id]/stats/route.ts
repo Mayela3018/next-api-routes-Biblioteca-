@@ -28,7 +28,7 @@ export async function GET(
 
     const sorted = [...books].sort((a, b) => (a.publishedYear ?? 0) - (b.publishedYear ?? 0));
     const byPages = [...books].filter(b => b.pages).sort((a, b) => (a.pages ?? 0) - (b.pages ?? 0));
-    const totalPagesSum = books.reduce((sum, b) => sum + (b.pages ?? 0), 0);
+const totalPagesSum = books.reduce((sum: number, b) => sum + (b.pages ?? 0), 0);
     const genres = [...new Set(books.map(b => b.genre).filter(Boolean))];
 
     return NextResponse.json({
